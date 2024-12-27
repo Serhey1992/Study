@@ -4,6 +4,7 @@
     --primary-text-color: #757575;
     --secondary-text-color: #212121;
     --acent-color: #2196F3;
+    --page-taming-func: cubic-bezier(0.4, 0, 0.2, 1);
 }
 h1,
 h2,
@@ -94,13 +95,25 @@ body{
     color: var(--secondary-text-color);
     font-weight: 500;
     letter-spacing: 0.28px;
+    transition: color 250ms var(--page-taming-func);
 }
 .nav-link:hover,
 .nav-link:focus{
     color: var(--acent-color);
 }
 .current{
+    position: relative;
     color: var(--acent-color);
+}
+.current::after{
+    position: absolute;
+    bottom: -1px;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: #2196F3;
 }
 .feedback {
     display: flex;
@@ -114,6 +127,7 @@ body{
     align-items: center;
     font-weight: 500;
     color: currentColor;
+    transition: color 250ms var(--page-taming-func);
 }
 .feedback-link:hover,
 .feedback-link:focus{
@@ -122,6 +136,7 @@ body{
 .feedback-icon{
     margin-right: 10px;
     fill: var(--primary-text-color);
+    transition: fill 250ms var(--page-taming-func);
 }
 .feedback-link:hover .feedback-icon,
 .feedback-link:focus .feedback-icon{
@@ -203,6 +218,23 @@ body{
     display: flex;
     gap: 30px;
 }
+.actings-img-wrapper{
+    position: relative;
+}
+.actings-text{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(47, 48, 58, 0.80);
+    color: #FFF;
+    font-weight: 700;
+    letter-spacing: 0.42px;
+    text-transform: uppercase;
+}
 /* ========= TEAM========= */
 .team-section{
     background-color: #F5F4FA;
@@ -234,7 +266,7 @@ body{
 }
 .team-social-list{
     display: flex;
-     align-items: center;
+    align-items: center;
     justify-content: center;
     gap: 10px;
 }
@@ -245,7 +277,8 @@ body{
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: inherit;
+    background-color: transparent;
+    transition: background-color 250ms var(--page-taming-func);
 }
 .team-social-link:hover,
 .team-social-link:focus{
@@ -253,6 +286,7 @@ body{
 }
 .social-icon{
     fill: #AFB1B8;
+    transition: fill 250ms var(--page-taming-func);
 }
 .team-social-link:hover .social-icon,
 .team-social-link:focus .social-icon{
@@ -272,6 +306,7 @@ body{
     padding: 16px 32px;
     border-radius: 4px;
     border: 1px solid #AFB1B8;
+    transition: border-color 250ms var(--page-taming-func);
 }
 .clients-link:hover,
 .clients-link:focus{
@@ -279,6 +314,7 @@ body{
 }
 .clients-icon{
     fill: #AFB1B8;
+    transition: fill 250ms var(--page-taming-func);
 }
 .clients-link:hover .clients-icon,
 .clients-link:focus .clients-icon {
@@ -308,6 +344,7 @@ body{
     font-style: normal;
     line-height: 1.7;
     letter-spacing: 0.42px;
+    transition: color 250ms var(--page-taming-func);
 }
 .address-map{
     color: #ffffff;
@@ -341,6 +378,7 @@ body{
     height: 44px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 250ms var(--page-taming-func);
 }
 .footer-social-link:hover,
 .footer-social-link:focus{
@@ -370,6 +408,9 @@ body{
     border-radius: 4px;
     background-color: #F5F4FA;
     cursor: pointer;
+    transition: color 250ms var(--page-taming-func), 
+    background-color 250ms var(--page-taming-func),
+    box-shadow 250ms var(--page-taming-func);
 }
 .button-nav:hover,
 .button-nav:focus{
@@ -385,10 +426,39 @@ body{
 .projects-link{
     display: inline-block;
     width: 370px;
+    transition: box-shadow 250ms var(--page-taming-func);
 }
 .projects-link:hover,
 .projects-link:focus{
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);}
+
+.projects-img-wrapper{
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 63px 24px;
+    color: #FFF;
+    font-size: 18px;
+    line-height: 1.55;
+    letter-spacing: 0.54px;
+    background-color: rgba(33, 150, 243, 0.90);
+    overflow: auto;
+    transform: translateY(100%);
+    transition: transform 250ms var(--page-taming-func);
+}
+
+.projects-link:hover .overlay,
+.projects-link:focus .overlay{
+    transform: translateY(0);
+}
+
 .projects-text-wrapper{
     padding: 20px 24px;
     border-bottom: 1px solid #EEE;
@@ -407,4 +477,40 @@ body{
     font-size: 16px;
     line-height: 1.87;
     letter-spacing: 0.48px;
+}
+
+/* ========= Modal========== */
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.20);
+}
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 528px;
+    height: 581px;
+    border-radius: 4px;
+    background-color: #FFF;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px 0px rgba(0, 0, 0, 0.20);
+}
+.btn-close-modal{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.10);;
 }
