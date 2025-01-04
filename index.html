@@ -369,6 +369,18 @@
                     </li>
                 </ul>
             </div>
+            <div class="footer-form-wrapper">
+                <p class="footer-form-text">Підпишіться на розсилку</p>
+                <form class="footer-form">
+                    <input class="footer-input" type="email" name="footer-email" placeholder="E-mail">
+                    <button type="submit" class="footer-form-btn">
+                        Підписатися
+                        <svg class="form-btn-icon" width="24px" height="24px">
+                            <use href="./images/sprite.svg#icon-send"></use>
+                        </svg>
+                    </button>
+                </form>
+            </div>
         </div>
     </footer>
 
@@ -379,6 +391,46 @@
                     <use href="./images/sprite.svg#icon-close"></use>
                 </svg>
             </button>
+            <p class="modal-title">Залиште свої дані, ми вам передзвонимо</p>
+            <form class="modal-form">
+                <label class="form-label">
+                    Ім'я
+                    <span class="input-wrapper">
+                        <input class="form-input" type="text" name="user-name" required>
+                        <svg class="input-icon" width="18px" height="18px">
+                            <use href="./images/sprite.svg#icon-person"></use>
+                        </svg>
+                    </span>
+                </label>
+                <label class="form-label">
+                    Телефон
+                    <span class="input-wrapper">
+                        <input class="form-input" type="tel" name="user-phone" required>
+                        <svg class="input-icon" width="18px" height="18px">
+                            <use href="./images/sprite.svg#icon-phone"></use>
+                        </svg>
+                    </span>
+                </label>
+                <label class="form-label">
+                    Пошта
+                    <span class="input-wrapper">
+                        <input class="form-input" type="email" name="user-mail" required>
+                        <svg class="input-icon" width="18px" height="18px">
+                            <use href="./images/sprite.svg#icon-email"></use>
+                        </svg>
+                    </span>
+                </label>
+                <label class="form-massega-label" for="user-massega">Коментар</label>
+                <textarea class="form-textarea" name="user-message" id="user-massega" placeholder="Введіть текст"></textarea>
+                <label>
+                    <input class="form-chek" type="checkbox" name="user-policy" required>
+                    <svg class="form-checkbox">
+                        <use class="checkbox-icon" href=""></use>
+                    </svg>
+                    Погоджуюся з розсилкою та приймаю <a href="#">Умови договору</a>
+                </label>
+                <button class="form-btn" type="submit">Відправити</button>
+            </form>
         </div>
     </div>
 
